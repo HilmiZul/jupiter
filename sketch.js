@@ -4,7 +4,7 @@ let ballImg, ball;
 let playerImg, playerHit, playerKatakol, player;
 let heartImg;
 let soundHit0, soundHit1, soundBg, soundDestroy;
-
+let font;
 let gamePlay = true;
 function preload() {
   bgStart = loadImage('assets/img/bg.png');
@@ -21,6 +21,8 @@ function preload() {
   soundHit0 = loadSound('assets/audio/hit-0.wav');
   soundBg = loadSound('assets/audio/bg.mp3');
   soundDestroy = loadSound('assets/audio/destroy.wav');
+
+  font = loadFont('assets/font/Kdam_Thmor_Pro/KdamThmorPro-Regular.ttf');
 }
 
 function setup() {
@@ -35,7 +37,7 @@ function setup() {
 
 function draw() {
   image(bgPlay, 0, 0);
-
+  textFont(font);
   if (gamePlay) {
     player.show(jupiterImg);
     player.info();
@@ -100,7 +102,7 @@ function keyPressed() {
   if (key === ' ') {
     player.nakol = true;
     player.heart -= 1;
-    ball.reverse *= -1;
+    ball.reverse = ball.reverse * -1;
     soundHit0.play();
   }
   if(key === 'm') {

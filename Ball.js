@@ -1,7 +1,7 @@
 class Ball {
   constructor() {
     this.pos = createVector(220, 0);
-    this.reverse = -30;
+    this.reverse = 30;
   }
 
   show() {
@@ -24,6 +24,6 @@ class Ball {
 
   reset() {
     this.pos = createVector(220, 0);
-    this.reverse = -30;
+    this.reverse = 30;
   }
 }
