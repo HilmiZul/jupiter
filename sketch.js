@@ -1,13 +1,16 @@
 let bgStart, bgPlay;
 let jupiterImg, jupiter;
 let ballImg, ball;
-let playerImg, player;
+let playerImg, playerHit, playerKatakol, player;
 function preload() {
   bgStart = loadImage('assets/img/bg.png');
   bgPlay = loadImage('assets/img/bg-play.png');
   jupiterImg = loadImage('assets/img/jupiter.png');
   ballImg = loadImage('assets/img/ball.png');
+
   playerImg = loadImage('assets/img/player.png');
+  playerHit = loadImage('assets/img/player-hit.png');
+  playerKatakol = loadImage('assets/img/player-caught.png');
 }
 
 function setup() {
@@ -26,4 +29,15 @@ function draw() {
   jupiter.show();
   
   ball.show();
+}
+
+function keyPressed() {
+  if(keyCode === DOWN_ARROW) {
+    // player sembunyi
+    player.tombolBawah = true;
+  }
+}
+
+function keyReleased() {
+  player.tombolBawah = false;
 }
