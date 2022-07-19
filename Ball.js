@@ -21,4 +21,9 @@ class Ball {
     );
     return hit;
   }
+
+  reset() {
+    this.pos = createVector(220, 0);
+    this.reverse = -30;
+  }
 }

@@ -43,4 +43,20 @@ class Player {
     }
     pop();
   }
+
+  dead() {
+    if(this.heart < 1) {
+      soundDestroy.play();
+      soundBg.stop();
+      return true;
+    }
+  }
+
+  reset() {
+    this.pos = createVector(0, 0);
+    this.tombolBawah = false;
+    this.nakol = false;
+    this.heart = 3;
+    this.name = "AZFA";
+  }
 }
