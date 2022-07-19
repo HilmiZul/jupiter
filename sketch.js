@@ -36,24 +36,44 @@ function setup() {
 function draw() {
   image(bgPlay, 0, 0);
 
-  if(gamePlay) {
+  if (gamePlay) {
     player.show(jupiterImg);
     player.info();
-    if(player.dead()) {
+    if (player.dead()) {
       gamePlay = false;
     }
-    
+
     jupiter.show();
-    
+
     ball.show();
+
+
+    // INFO CONTROLLER: PAUSE, EXIT DAN UNMUTE MUSIK
+    push();
+    textSize(12);
+    fill(250, 210, 100);
+    stroke(255);
+    strokeWeight(2);
+    rect(width - 200, height / 2 - 80, 90, 50, 10);
+    rect(width - 200, height / 2, 90, 50, 10);
+    rect(width / 2 - 90 / 2, height - 60, 90, 50, 10);
+    noStroke();
+    fill(255);
+    text('PAUSE: Esc', width - 190, height / 2 - 50);
+    text('LANJUT: Enter', width - 195, height / 2 + 30);
+    text('Mute/Unmute:', width / 2 - 75 / 2, height - 40);
+    text('M', width / 2 - 10 / 2, height - 20);
+    pop();
   } else {
+    push();
     fill(250, 210, 100);
     noStroke();
     rectMode(CENTER);
-    rect(width/2, height/2, 500, 500);
+    rect(width / 2, height / 2, 500, 500);
     textSize(50);
     fill(255);
-    text('YOU LOSE!', width/2-120, 200);
+    text('YOU LOSE!', width / 2 - 120, 200);
+    pop();
   }
   // if(ball.diTakol(player)) {
   //   console.log('ditakol!!!');
@@ -62,26 +82,29 @@ function draw() {
 }
 
 function keyPressed() {
-  if(keyCode === DOWN_ARROW) {
+  if (keyCode === DOWN_ARROW) {
     // player sembunyi
     player.tombolBawah = true;
   }
-  if(keyCode === ESCAPE) {
+  if (keyCode === ESCAPE) {
     noLoop();
     soundBg.pause();
   }
-  if(keyCode === RETURN) {
+  if (keyCode === RETURN) {
     player.reset();
     ball.reset();
     loop();
     soundBg.play();
     gamePlay = true;
   }
-  if(key === ' ') {
+  if (key === ' ') {
     player.nakol = true;
     player.heart -= 1;
     ball.reverse *= -1;
     soundHit0.play();
+  }
+  if(key === 'm') {
+    soundBg.pause()
   }
 }
 
