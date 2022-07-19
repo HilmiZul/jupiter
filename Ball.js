@@ -1,4 +1,4 @@
-class Jupiter {
+class Ball {
   constructor() {
     this.pos = createVector(width / 2, height / 2);
   }
@@ -6,9 +6,10 @@ class Jupiter {
   show() {
     push();
     translate(this.pos.x, this.pos.y);
-    rotate(-frameCount / -360);
+    // reverse ball (-)
+    rotate(-frameCount / 30);
     imageMode(CENTER);
-    image(jupiterImg, 0, 0);
+    image(ballImg, 220, 0);
     pop();
   }
 }
