@@ -50,6 +50,7 @@ function keyPressed() {
   if(keyCode === RETURN) loop();
   if(key === ' ') {
     player.nakol = true;
+    player.heart -= 1;
     ball.reverse *= -1;
   }
 }
