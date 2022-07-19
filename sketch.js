@@ -3,6 +3,7 @@ let jupiterImg, jupiter;
 let ballImg, ball;
 let playerImg, playerHit, playerKatakol, player;
 let heartImg;
+let soundHit0, soundHit1, soundBg;
 function preload() {
   bgStart = loadImage('assets/img/bg.png');
   bgPlay = loadImage('assets/img/bg-play.png');
@@ -14,10 +15,15 @@ function preload() {
   playerKatakol = loadImage('assets/img/player-caught.png');
 
   heartImg = loadImage('assets/img/heart.png');
+
+  soundHit0 = loadSound('assets/audio/hit-0.wav');
+  soundBg = loadSound('assets/audio/bg.mp3');
 }
 
 function setup() {
   createCanvas(960, 600);
+
+  soundBg.play();
 
   jupiter = new Jupiter();
   ball = new Ball();
@@ -52,6 +58,7 @@ function keyPressed() {
     player.nakol = true;
     player.heart -= 1;
     ball.reverse *= -1;
+    soundHit0.play();
   }
 }
 
